@@ -9,14 +9,14 @@
 #  see ______ , fill it in. Where you see a full line, just run it.
 #
 #  Rule for pairs: one person types, one person reads the code out loud
-#  and says what it should do BEFORE you run it. Swap at step 4.
+#  and says what it should do BEFORE you run it. Swap at step 5.
 #
 #  Stuck for more than two minutes? Flag us down. That is what we are
 #  here for -- do not burn the module on one blank.
 # =====================================================================
 
 
-# ---- 0. Load the tools ----------------------------------------------
+# ---- 1. Load the tools ----------------------------------------------
 
 # Same five as Module 1. Just run them.
 import pandas as pd
@@ -26,7 +26,7 @@ from scipy import stats
 import statsmodels.formula.api as smf
 
 
-# ---- 1. Get the data ------------------------------------------------
+# ---- 2. Get the data ------------------------------------------------
 
 # This is the state-level file. We built it in Module 1; here it is
 # ready-made, with a few extra columns.
@@ -46,7 +46,7 @@ states.______()     # what does a row look like?
 #   expanded           1 = expanded Medicaid in 2014, 0 = did not
 
 
-# ---- 2. Look at it first --------------------------------------------
+# ---- 3. Look at it first --------------------------------------------
 
 # Same rule as Module 1: never test a variable you have not looked at.
 # Make a histogram of poverty_rate.
@@ -57,7 +57,7 @@ plt.show()
 # PREDICT before you run it: roughly where will the middle be?
 
 
-# ---- 3. Build the grouping variable ---------------------------------
+# ---- 4. Build the grouping variable ---------------------------------
 
 # In Module 1 the groups came ready-made (a state expanded, or it did
 # not). Poverty is a number, not a group -- so we have to make groups.
@@ -76,11 +76,11 @@ states["high_poverty"] = np.where(______________________________, 1, 0)
 states["high_poverty"].value_counts()
 
 # NOTE: we did not need the .notna() guard this time. Why not?
-# (Look back at Module 1, step 3. Hint: check
+# (Look back at Module 1, step 4. Hint: check
 #  states["poverty_rate"].isna().sum().)
 
 
-# ---- 4. Look at the comparison --------------------------------------
+# ---- 5. Look at the comparison --------------------------------------
 #  >>> SWAP TYPIST HERE <<<
 
 # The "y broken down by x" template. Outcome in column=, groups in by=.
@@ -101,7 +101,7 @@ diff_obs
 # "High-poverty states averaged ___ more deaths per 100,000."
 
 
-# ---- 5. The test ----------------------------------------------------
+# ---- 6. The test ----------------------------------------------------
 
 # Same test again. This will throw an error, see if you can figure it out.
 result = stats.ttest_ind(states["crude_rate_20_64"][states["high_poverty"] == 1]
@@ -114,7 +114,7 @@ result.confidence_interval()
 # and what does it tell you that the p-value does not?
 
 
-# ---- 6. Build the p-value yourself ----------------------------------
+# ---- 7. Build the p-value yourself ----------------------------------
 
 # Shuffle the labels, recompute the difference, one fake world:
 rng = np.random.default_rng()
@@ -126,7 +126,7 @@ shuffled = rng.permutation(states["high_poverty"])
 
 # Now 1000 fake worlds. Fill in the blank -- it is the same two-line
 # subtraction you just ran.
-# You wrote the observed difference by hand in step 4. This is the same
+# You wrote the observed difference by hand in step 5. This is the same
 # subtraction, on the shuffled labels instead of the real ones.
 rng = np.random.default_rng(2026)
 diffs = []
@@ -156,16 +156,16 @@ plt.show()
 # 1/1000. Report it as p < 0.001, never as p = 0.
 
 
-# ---- 7. The same answer as a regression -----------------------------
+# ---- 8. The same answer as a regression -----------------------------
 
 m = smf.______("crude_rate_20_64 ~ high_poverty", data=states).fit()
 print(m.summary())
 
 # Check: does the coef on the high_poverty row match your diff_obs
-# from step 4? It should, to the decimal.
+# from step 5? It should, to the decimal.
 
 
-# ---- 8. Compare your two analyses -----------------------------------
+# ---- 9. Compare your two analyses -----------------------------------
 
 # Module 1 could not distinguish expansion from chance: -39, p = 0.13.
 # You just found high poverty associated with about +110, p < 0.001.

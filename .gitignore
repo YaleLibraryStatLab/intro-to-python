@@ -7,7 +7,8 @@
 # Claude Code
 .claude/
 
-# Python virtual environment and bytecode
+# Python environment: `uv sync` builds .venv/ on each machine from
+# pyproject.toml and uv.lock (both tracked). Bytecode is rebuilt on run.
 .venv/
 __pycache__/
 *.py[cod]

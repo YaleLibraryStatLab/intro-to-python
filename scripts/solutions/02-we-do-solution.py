@@ -3,7 +3,7 @@
 #  Do high-poverty states have higher working-age mortality?
 # =====================================================================
 
-# ---- 0. Load the tools ----------------------------------------------
+# ---- 1. Load the tools ----------------------------------------------
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,7 +11,7 @@ from scipy import stats
 import statsmodels.formula.api as smf
 
 
-# ---- 1. Get the data ------------------------------------------------
+# ---- 2. Get the data ------------------------------------------------
 states = pd.read_csv("data/medicaid_states.csv")
 
 states.shape       # 39 rows, 7 columns
@@ -19,14 +19,14 @@ states.columns
 states.head()
 
 
-# ---- 2. Look at it first --------------------------------------------
+# ---- 3. Look at it first --------------------------------------------
 plt.figure()
 plt.hist(states["poverty_rate"])
 plt.show()
 # Median 15.4, range about 9 to 22, mild right skew.
 
 
-# ---- 3. Build the grouping variable ---------------------------------
+# ---- 4. Build the grouping variable ---------------------------------
 states["poverty_rate"].median()
 
 states["high_poverty"] = np.where(states["poverty_rate"] > states["poverty_rate"].median(), 1, 0)
@@ -43,7 +43,7 @@ states["poverty_rate"].isna().sum()   # 0
 # out loud instead of by accident.
 
 
-# ---- 4. Look at the comparison --------------------------------------
+# ---- 5. Look at the comparison --------------------------------------
 states.boxplot(column="crude_rate_20_64", by="high_poverty")
 plt.show()
 
@@ -56,7 +56,7 @@ diff_obs
 # 100,000 working-age people.
 
 
-# ---- 5. The test ----------------------------------------------------
+# ---- 6. The test ----------------------------------------------------
 # The error in the student script was a missing comma between the two
 # groups. Python's message says so: "Perhaps you forgot a comma?"
 result = stats.ttest_ind(states["crude_rate_20_64"][states["high_poverty"] == 1],
@@ -72,7 +72,7 @@ result.confidence_interval()
 # p-value alone never tells you.
 
 
-# ---- 6. Build the p-value yourself ----------------------------------
+# ---- 7. Build the p-value yourself ----------------------------------
 rng = np.random.default_rng()
 shuffled = rng.permutation(states["high_poverty"])
 (states["crude_rate_20_64"][shuffled == 1].mean() -
@@ -97,13 +97,13 @@ plt.show()
 # exactly what an overwhelming result looks like.
 
 
-# ---- 7. The same answer as a regression -----------------------------
+# ---- 8. The same answer as a regression -----------------------------
 m = smf.ols("crude_rate_20_64 ~ high_poverty", data=states).fit()
 print(m.summary())
-# The high_poverty coef equals diff_obs from step 4 exactly.
+# The high_poverty coef equals diff_obs from step 5 exactly.
 
 
-# ---- 8. Discussion answers ------------------------------------------
+# ---- 9. Discussion answers ------------------------------------------
 #
 # a) Poverty has the larger effect (~110 vs ~-39) AND the smaller
 #    p-value here -- but those are different questions. Effect size is

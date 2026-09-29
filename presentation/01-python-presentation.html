@@ -9,7 +9,7 @@
 <link href="01-python-presentation_files/libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.30">
 
-  <title>Doing Statistics in Python</title>
+  <title>Intro to Statistical Programming in Python</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -194,50 +194,34 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Doing Statistics in Python</h1>
-  <p class="subtitle">StatLab Workshop 01: Introduction to Python</p>
+  <h1 class="title">Intro to Statistical Programming in Python</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="by-the-end-of-today" class="slide level2">
-<h2>By the end of today</h2>
-<p>You will have run a complete statistical analysis in Python:</p>
-<ul>
-<li class="fragment">read real data and looked at it</li>
-<li class="fragment">compared two groups and tested the difference</li>
-<li class="fragment">visualize and assess patterns in your data</li>
-<li class="fragment">fit a regression and read the output</li>
-</ul>
-<div class="fragment">
-<p>It takes thirty-one functions and methods. That is the whole list.</p>
-</div>
-</section>
-<section id="what-todays-workshop-is-not" class="slide level2">
-<h2>What today’s workshop is not</h2>
-<ul>
-<li class="fragment">a crash course in Python programming (e.g., objects, functions, loops)</li>
-<li class="fragment">a crash course in hypothesis testing</li>
-</ul>
-</section>
 <section id="playing-the-ballgame-early" class="slide level2">
-<h2>Playing the Ballgame Early</h2>
+<h2>Playing the ballgame early</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
+<div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="mets-stadium.jpeg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:50%;">
+<p>You learn Python today by <em>doing</em> statistics: a junior version of the whole game, start to finish.</p>
+<p><strong>What you will learn</strong></p>
 <ul>
-<li class="fragment">Today’s workshop is about learning Python by <em>doing</em> statistics.</li>
-<li class="fragment">Our goal today is to get you comfortable playing a <em>junior</em> version of the whole ballgame:</li>
+<li>read real data</li>
+<li>compare two groups</li>
+<li>test the difference</li>
+<li>fit a regression</li>
 </ul>
+<p>Twenty-eight functions and methods, and that is the whole list.</p>
 </div></div>
-<div class="fragment ballgame-flow">
-<p><img data-src="../assets/ballgame-flow.svg" alt="question, data, describe, visualize, model, report"></p>
+<div class="fragment">
+<p>It is <strong>not</strong> a crash course in Python programming, or in hypothesis testing.</p>
 </div>
 </section>
 <section id="todays-question" class="slide level2">
@@ -275,7 +259,7 @@
 <tr class="odd">
 <td><strong>Module 3</strong></td>
 <td>You do</td>
-<td>On your own. Eight steps, no code.</td>
+<td>On your own. Nine steps, no code.</td>
 </tr>
 </tbody>
 </table>
@@ -284,77 +268,33 @@
 <section id="two-rules" class="slide level2 scrollable">
 <h2>Two rules</h2>
 <ol type="1">
-<li class="fragment"><strong>Type it, don’t read it.</strong> Watching me will not put it in your hands.
-<ul>
-<li class="fragment"><p>When you see a code block like this, type it into your script:</p>
+<li class="fragment"><p><strong>Type it, don’t read it.</strong> Type each code block into your script:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="co"># a comment: Python skips this whole line</span></span>
-<span id="cb1-2"><a href=""></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span>   <span class="co"># and everything after a # on a line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="co"># a comment: Python skips everything after a #</span></span>
+<span id="cb1-2"><a href=""></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>4</code></pre>
 </div>
-</div></li>
-<li class="fragment"><p>What prints underneath (<code>4</code>) is Python’s answer. Don’t type that.</p></li>
-<li class="fragment"><p><code>#</code> starts a <strong>comment</strong>, a note for humans. Your scripts are full of them: they are the instructions. Write your code on the blank line below, never after a <code>#</code>, or Python will skip it.</p></li>
-</ul></li>
-<li class="fragment"><strong>Errors are the job, not a failure.</strong> I will make several on purpose. You will make more by accident. This never stops, for anyone.</li>
+</div>
+<p>What prints underneath (<code>4</code>) is Python’s answer. Don’t type that.</p></li>
+<li class="fragment"><p><strong>Errors are part of learning.</strong> I will make several on purpose. You will make more by accident. That never stops, for anyone.</p></li>
 </ol>
 <div class="fragment">
 <p>Red sticky = stuck. Green = through. Put the red one up early.</p>
 </div>
 </section>
-<section>
-<section id="setup" class="title-slide slide level1 center">
-<h1>Setup</h1>
-
-</section>
 <section id="getting-in" class="slide level2 scrollable">
 <h2>Getting in</h2>
-<p>We are using <strong>Positron</strong>, Posit’s data-science IDE, the one they are building next after RStudio.</p>
+<p>You set this up before today with <code>scripts/00-check.py</code>. Now:</p>
 <ol type="1">
 <li class="fragment"><strong>File → Open Folder</strong>, and choose the <code>intro-to-python</code> folder</li>
-<li class="fragment">Check the top-right corner says <strong>Python</strong>, from this folder’s <code>.venv</code>. That is your interpreter</li>
-<li class="fragment">Open <code>scripts/01-i-do.py</code> from the file list on the left</li>
-<li class="fragment">Run a line with <strong>Cmd+Enter</strong> (Mac) / <strong>Ctrl+Enter</strong> (Windows)</li>
+<li class="fragment">Click the Python version in the <strong>top-right corner</strong> and choose the one from this folder’s <code>.venv</code></li>
+<li class="fragment">Open <code>scripts/01-i-do.py</code> and run a line with <strong>Cmd+Enter</strong> (Mac) / <strong>Ctrl+Enter</strong> (Windows)</li>
 </ol>
 <div class="fragment">
-<p>Open the <strong>folder</strong>, not a file. Positron makes whatever folder you open the working directory, which is why every file path we type today is short and the same on every laptop.</p>
+<p>Open the <strong>folder</strong>, not a file: it keeps every file path short. No <code>You're ready.</code> before today? Red sticky now.</p>
 </div>
 </section>
-<section id="the-parts-you-need-today" class="slide level2">
-<h2>The parts you need today</h2>
-<div class="ide-map">
-<div class="activity">
-<p>Activity Bar</p>
-</div>
-<div class="explorer">
-<p><span class="label">Explorer</span> Your files. <code>scripts/</code>, <code>data/</code>, and the rest of the folder you opened.</p>
-</div>
-<div class="key">
-<p><span class="label">Editor</span> Where you <strong>write</strong>.</p>
-<p><code>scripts/01-i-do.py</code> opens here.</p>
-<p><strong>Cmd+Enter</strong> sends the current line down to the Console.</p>
-</div>
-<div class="key side">
-<p><span class="label">Variables</span> What currently <strong>exists</strong>. Watch <code>states</code> appear here when you make it.</p>
-<p><span class="label">Plots</span> Where <strong>pictures</strong> land.</p>
-<div class="ide-note">
-<p>Both live in the right sidebar. Click between them.</p>
-</div>
-</div>
-<div class="key">
-<p><span class="label">Console</span> Where it <strong>runs</strong>. Your code arrives here, and Python answers underneath.</p>
-</div>
-</div>
-</section>
-<section id="two-things-positron-gives-you" class="slide level2">
-<h2>Two things Positron gives you</h2>
-<p><strong>The Data Explorer.</strong> Click a DataFrame in <strong>Variables</strong> and you get a real spreadsheet view: sort it, filter it, see the type and missingness of every column. It is the fastest way to answer “what am I actually looking at?”</p>
-<p><strong>One IDE for R and Python.</strong> The interpreter picker in the top-right switches languages. Nothing today needs it, but it is why Positron exists.</p>
-<div class="fragment">
-<p>Everything else (the Command Palette, extensions, source control) you can ignore for three hours. Editor, Console, Variables, Plots. That is the whole interface today.</p>
-</div>
-</section></section>
 <section>
 <section id="module-1-i-do" class="title-slide slide level1 center">
 <h1>Module 1: I do</h1>
@@ -367,8 +307,19 @@
 <li class="fragment">An <strong>object</strong> is something you made and gave a name to. It sits in the Variables pane until you overwrite it or restart Python.</li>
 <li class="fragment">A <strong>function</strong> does something. You give it a name, a pair of parentheses, and whatever it needs to know inside them.</li>
 </ul>
+</section>
+<section id="step-1-load-the-tools" class="slide level2">
+<h2>Step 1: load the tools</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-3"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-4"><a href=""></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb3-5"><a href=""></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Python on its own does not know about tables, plots, or statistics. Those live in <strong>libraries</strong>, and you load the ones you need at the top of every script.</p>
 <div class="fragment">
-<p>That is the whole vocabulary. Every line today is one or both.</p>
+<p><code>import pandas as pd</code> loads pandas under a short nickname: <code>pd.</code> means <em>the pandas version of</em>. Everyone uses these same five nicknames.</p>
 </div>
 </section>
 <section id="anatomy-of-a-function-call" class="slide level2">
@@ -377,7 +328,7 @@
 <p><span class="fragment highlight-current-red" data-fragment-index="1">pd.</span><span class="fragment highlight-current-red" data-fragment-index="2">read_csv</span><span class="fragment highlight-current-red" data-fragment-index="3">(</span><span class="fragment highlight-current-red" data-fragment-index="4">"data/medicaid.csv"</span><span class="fragment highlight-current-red" data-fragment-index="6">,&nbsp;</span><span class="fragment highlight-current-red" data-fragment-index="5">index_col=0</span><span class="fragment highlight-current-red" data-fragment-index="3">)</span></p>
 </div>
 <div class="fragment" data-fragment-index="1">
-<p><strong><code>pd.</code></strong> says where the function lives: in pandas, the table library, which we load under the short name <code>pd</code> before step 1.</p>
+<p><strong><code>pd.</code></strong> says where the function lives: in pandas, the table library, which we just loaded under the short name <code>pd</code>.</p>
 </div>
 <div class="fragment" data-fragment-index="2">
 <p><strong><code>read_csv</code></strong> is the function name. It says what you want done.</p>
@@ -389,7 +340,7 @@
 <p><strong><code>"data/medicaid.csv"</code></strong> is the first argument: which file to read.</p>
 </div>
 <div class="fragment" data-fragment-index="5">
-<p><strong><code>index_col=0</code></strong> is a named argument. It changes how the function behaves: treat the first column as row labels, not data. (Python counts from 0, so column 0 <em>is</em> the first one.) That is why we get 13 columns from a 14-column file.</p>
+<p><strong><code>index_col=0</code></strong> is a named argument: treat the first column as row labels, not data. (Python counts from 0, so column 0 <em>is</em> the first.)</p>
 </div>
 <div class="fragment" data-fragment-index="6">
 <p><strong><code>,</code></strong> separates one argument from the next.</p>
@@ -398,63 +349,8 @@
 <p>Two questions get you through any function: <strong>what do I want Python to do</strong>, and <strong>what does Python need to know to do it?</strong></p>
 </div>
 </section>
-<section id="inside-the-quotes-a-path" class="slide level2">
-<h2>Inside the quotes: a path</h2>
-<div class="anatomy big">
-<p><span class="fragment highlight-current-red" data-fragment-index="1">"</span><span class="fragment highlight-current-red" data-fragment-index="2">data/</span><span class="fragment highlight-current-red" data-fragment-index="3">medicaid<span class="fragment highlight-current-red" data-fragment-index="4">.csv</span></span><span class="fragment highlight-current-red" data-fragment-index="1">"</span></p>
-</div>
-<div class="fragment" data-fragment-index="1">
-<p><strong><code>" "</code></strong> make it a <strong>string</strong>: text, taken as-is. Without them, Python reads <code>medicaid</code> as the name of an object, goes looking, and fails.</p>
-</div>
-<div class="fragment" data-fragment-index="2">
-<p><strong><code>data/</code></strong> is a folder. Folder, slash, file: that is a <strong>path</strong>, directions to the file, starting from the folder you opened.</p>
-</div>
-<div class="fragment" data-fragment-index="3">
-<p><strong><code>medicaid.csv</code></strong> is the file itself.</p>
-</div>
-<div class="fragment" data-fragment-index="4">
-<p><strong><code>.csv</code></strong> is the <strong>extension</strong>: what kind of file it is. Comma-separated values, a table saved as plain text. <code>pd.read_csv()</code> reads this kind; an Excel <code>.xlsx</code> needs a different function. Finder and File Explorer hide extensions by default, so you may only see <code>medicaid</code> there.</p>
-</div>
-</section>
-<section id="mac-vs.-windows" class="slide level2">
-<h2>Mac vs.&nbsp;Windows</h2>
-<p>The full path to the same file, on two laptops:</p>
-<table class="caption-top">
-<tbody>
-<tr class="odd">
-<td><strong>Mac</strong></td>
-<td><code>/Users/you/intro-to-python/data/medicaid.csv</code></td>
-</tr>
-<tr class="even">
-<td><strong>Windows</strong></td>
-<td><code>C:\Users\you\intro-to-python\data\medicaid.csv</code></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li class="fragment">Ours skips all of that. <code>data/medicaid.csv</code> starts from the folder you opened, so it is the same on every laptop.</li>
-<li class="fragment">In Python, always write <code>/</code>, even on Windows. A lone <code>\</code> can silently turn into a special character: in <code>"data\new.csv"</code>, the <code>\n</code> becomes a line break, and Python goes looking for a file that does not exist. <code>/</code> never does that.</li>
-</ul>
-</section>
-<section id="step-0-load-the-tools" class="slide level2">
-<h2>Step 0: load the tools</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-3"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-4"><a href=""></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
-<span id="cb3-5"><a href=""></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Python on its own does not know about tables, plots, or statistics. Those live in <strong>libraries</strong>, and you load the ones you need at the top of every script.</p>
-<div class="fragment">
-<p><code>import pandas as pd</code> loads pandas under a short nickname. From here on, <code>pd.</code> means <em>the pandas version of</em>. Everyone uses these same five nicknames, so you will recognise them in other people’s code.</p>
-</div>
-<div class="fragment">
-<p><code>No module named 'pandas'</code>? Look at the top-right corner. Positron should be using the Python from this folder’s <code>.venv</code>.</p>
-</div>
-</section>
-<section id="step-1-read-the-data" class="slide level2">
-<h2>Step 1: read the data</h2>
+<section id="step-2-read-the-data" class="slide level2">
+<h2>Step 2: read the data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>counties <span class="op">=</span> pd.read_csv(<span class="st">"data/medicaid.csv"</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -463,8 +359,8 @@
 <p>Look at the <strong>Variables</strong> pane. <code>counties</code> is now in it.</p>
 </div>
 </section>
-<section id="step-1-three-questions" class="slide level2">
-<h2>Step 1: three questions</h2>
+<section id="step-2-three-questions" class="slide level2">
+<h2>Step 2: three questions</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a>counties.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -504,8 +400,8 @@
 <p>The dot means <em>belonging to</em>: <code>counties.shape</code> is the shape of <code>counties</code>. With parentheses, <code>.head(3)</code> <strong>does</strong> something; it is a <em>method</em>. Without them, <code>.shape</code> just <strong>looks something up</strong>; it is an <em>attribute</em>.</p>
 </div>
 </section>
-<section id="step-2-look-at-the-outcome" class="slide level2">
-<h2>Step 2: look at the outcome</h2>
+<section id="step-3-look-at-the-outcome" class="slide level2">
+<h2>Step 3: look at the outcome</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>plt.figure()</span>
 <span id="cb11-2"><a href=""></a>plt.hist(counties[<span class="st">"crude_rate_20_64"</span>])</span>
@@ -514,7 +410,7 @@
 </div>
 <img data-src="01-python-presentation_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch"><p>Never test a variable you have not looked at. Defaults are fine; we are not decorating anything yet.</p>
 <div class="fragment">
-<p><code>plt.figure()</code> starts a fresh, blank picture and <code>plt.show()</code> shows it. Positron keeps a picture open until you start a new one, so skip <code>plt.figure()</code> and your next plot lands on top of this one. (Your Console also prints what <code>plt.hist()</code> drew. Ignore it.)</p>
+<p><code>plt.figure()</code> starts a fresh picture and <code>plt.show()</code> shows it. Skip <code>plt.figure()</code> and your next plot lands on top of this one.</p>
 </div>
 </section>
 <section id="what-are-those" class="slide level2">
@@ -532,19 +428,8 @@
 <li class="fragment">so <code>[" "]</code> has to pick <strong>one of its columns</strong> out of <strong>a table</strong></li>
 </ul>
 <div class="fragment">
-<blockquote>
-<p>“<code>counties</code> … the <code>crude_rate_20_64</code> one.”</p>
-</blockquote>
+<p><strong>Use the context clues.</strong> Read around the unfamiliar piece first, guess what it has to be, then check. Faster than looking it up cold, and it sticks.</p>
 </div>
-</section>
-<section id="use-the-context-clues" class="slide level2">
-<h2>Use the context clues</h2>
-<p>You just read a symbol you had never seen, correctly, without looking it up.</p>
-<ul>
-<li class="fragment">Unfamiliar Python code is usually surrounded by things you do recognise: a table you made, a column you have seen, a function whose name says what it does.</li>
-<li class="fragment">Read around the gap first. The shape of the line tells you what the missing piece has to be.</li>
-<li class="fragment">Then check. Guessing and confirming is faster than looking up cold, and you remember it longer.</li>
-</ul>
 </section>
 <section id="reading-from-the-inside-out" class="slide level2 scrollable">
 <h2>Reading from the inside out</h2>
@@ -559,30 +444,67 @@
 </blockquote>
 </div>
 </section>
-<section id="step-3-expansion-is-a-state-policy" class="slide level2">
-<h2>Step 3: expansion is a state policy</h2>
-<p>Every county in Alabama has the same Medicaid policy as every other county in Alabama.</p>
+<section id="step-4-get-the-data-ready" class="slide level2">
+<h2>Step 4: get the data ready</h2>
+<blockquote>
+<p><strong>Did states that expanded Medicaid in 2014 have lower working-age mortality than states that did not?</strong></p>
+</blockquote>
+<p>What do we need to do to our data before we can answer that?</p>
 <div class="fragment">
-<p>So the thing that varies is the <strong>state</strong>, not the county. Thirty-nine states decided; 2,372 counties did not each decide separately.</p>
+<p><strong>1. Aggregate.</strong> Expansion is a <em>state</em> policy, so we need one mortality rate per state, for 2014.</p>
 </div>
 <div class="fragment">
-<p>We need one row per state before we compare anything. That takes three moves: keep one year, label each state, then average to the state.</p>
-</div>
-</section>
-<section id="step-3a-keep-one-year" class="slide level2">
-<h2>Step 3a: keep one year</h2>
+<p><strong>2. Deal with the NAs.</strong> How is the policy recorded right now?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>d2014 <span class="op">=</span> counties[counties[<span class="st">"year"</span>] <span class="op">==</span> <span class="dv">2014</span>]</span>
-<span id="cb12-2"><a href=""></a>d2014.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>counties[<span class="st">"yaca"</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1   NaN
+2   NaN
+3   NaN
+4   NaN
+5   NaN
+Name: yaca, dtype: float64</code></pre>
+</div>
+</div>
+<p><code>yaca</code> is the year a state expanded; <code>NaN</code> (missing) means never. We need a clean 1 or 0.</p>
+</div>
+<div class="fragment">
+<p><strong>3. Weight by population.</strong> The smallest and largest counties in 2014:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                       people aged 20-64  deaths % who died
+county                                                     
+Arthur County, NE                    224       0     0.000%
+Los Angeles County, CA         6,298,815  15,397     0.244%</code></pre>
+</div>
+</div>
+<p>Averaging county rates gives these two the same vote. <strong>Is that a reasonable comparison?</strong></p>
+</div>
+<aside class="notes">
+<p>Take answers for each before revealing the next. On 3: one death in Arthur County would put it at 0.446%, nearly twice Los Angeles. The three names are the plan for the next several slides: aggregate, deal with the NAs, weight by population. We take them in the order the code needs them: keep 2014, label the states, then add up deaths and people by state.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="step-4a-keep-one-year" class="slide level2">
+<h2>Step 4a: keep one year</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>d2014 <span class="op">=</span> counties[counties[<span class="st">"year"</span>] <span class="op">==</span> <span class="dv">2014</span>]</span>
+<span id="cb15-2"><a href=""></a>d2014.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(2372, 13)</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>Square brackets with a <code>True</code>/<code>False</code> test inside keep the rows where the test is <code>True</code>. We asked for rows where <code>year</code> is 2014, and we get every column.</p>
-</div>
-<div class="fragment">
-<p><code>==</code> asks <em>is this equal to</em>. It is a question, not an instruction — that is why it is doubled.</p>
+<p>Square brackets with a <code>True</code>/<code>False</code> test inside keep the rows where the test is <code>True</code>. <code>==</code> asks <em>is this equal to?</em>: a question, so it is doubled.</p>
 </div>
 </section>
 <section id="reading-a-line-right-to-left" class="slide level2">
@@ -602,14 +524,14 @@
 </blockquote>
 </div>
 <div class="fragment">
-<p>Whatever is left of the <code>=</code> is the name you are giving to the result. If you can say a line out loud, you understand it. If you cannot, that is where to stop and ask.</p>
+<p>If you can say a line out loud, you understand it. If you cannot, stop and ask.</p>
 </div>
 </section>
-<section id="step-3b-label-each-state" class="slide level2">
-<h2>Step 3b: label each state</h2>
+<section id="step-4b-label-each-state" class="slide level2">
+<h2>Step 4b: label each state</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>d2014[<span class="st">"expanded"</span>] <span class="op">=</span> np.where(d2014[<span class="st">"yaca"</span>].notna() <span class="op">&amp;</span> (d2014[<span class="st">"yaca"</span>] <span class="op">==</span> <span class="dv">2014</span>), <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb14-2"><a href=""></a>d2014[<span class="st">"expanded"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>d2014[<span class="st">"expanded"</span>] <span class="op">=</span> np.where(d2014[<span class="st">"yaca"</span>].notna() <span class="op">&amp;</span> (d2014[<span class="st">"yaca"</span>] <span class="op">==</span> <span class="dv">2014</span>), <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb17-2"><a href=""></a>d2014[<span class="st">"expanded"</span>].value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>expanded
 0    1337
@@ -624,81 +546,52 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="why-the-.notna-guard" class="slide level2">
 <h2>Why the <code>.notna()</code> guard</h2>
-<p>States that never expanded have <code>yaca = NaN</code>: <em>not a number</em>, pandas’ mark for a missing value.</p>
+<p>A missing value answers <code>False</code> to <em>every</em> comparison, so <code>NaN == 2014</code> quietly lands in the 0 group. The guard says so out loud: <em>not missing, and equal to 2014.</em></p>
 <div class="fragment">
-<p><code>NaN == 2014</code> is <code>False</code>. In pandas a missing value answers <code>False</code> to <em>every</em> comparison, so it quietly lands in whichever group <code>False</code> means. Here that is the right group, and the guard says so out loud: <em>not missing, and equal to 2014.</em></p>
-</div>
-<div class="fragment">
-<p>Now the trap. <code>&amp;</code> means “and”, and Python does <code>&amp;</code> <strong>before</strong> <code>==</code>. Drop the parentheses and there is no error:</p>
+<p>The trap: Python does <code>&amp;</code> <strong>before</strong> <code>==</code>. Drop the parentheses and there is no error:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>np.where(d2014[<span class="st">"yaca"</span>].notna() <span class="op">&amp;</span> d2014[<span class="st">"yaca"</span>] <span class="op">==</span> <span class="dv">2014</span>, <span class="dv">1</span>, <span class="dv">0</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>np.where(d2014[<span class="st">"yaca"</span>].notna() <span class="op">&amp;</span> d2014[<span class="st">"yaca"</span>] <span class="op">==</span> <span class="dv">2014</span>, <span class="dv">1</span>, <span class="dv">0</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.int64(0)</code></pre>
 </div>
 </div>
-<p>Every county lands in the “did not expand” group.</p>
-</div>
-<div class="fragment">
-<p>Silent wrong answers are worse than errors. This is one of the most common ways pandas hands you one.</p>
+<p>Every county lands in “did not expand”. Silent wrong answers are worse than errors.</p>
 </div>
 </section>
-<section id="ask-python-itself" class="slide level2 scrollable">
+<section id="ask-python-itself" class="slide level2">
 <h2>Ask Python itself</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="bu">help</span>(pd.Series.mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The help page opens in the <strong>Help</strong> pane. Near the top it lists every argument and its default:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>Series.mean(<span class="op">*</span>, axis<span class="op">=</span><span class="dv">0</span>, skipna<span class="op">=</span><span class="va">True</span>, numeric_only<span class="op">=</span><span class="va">False</span>, <span class="op">**</span>kwargs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="bu">help</span>(pd.Series.mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <strong>Help</strong> pane lists every argument and its default: <code>Series.mean(*, axis=0, skipna=True, ...)</code>. So pandas skips missing values unless you say otherwise.</p>
 <div class="fragment">
-<p>Three questions for the room:</p>
-<ol type="1">
-<li>How many arguments does <code>.mean()</code> take?</li>
-<li>What does <code>skipna</code> do? (scroll to <strong>Parameters</strong>)</li>
-<li>What is it set to if you don’t say?</li>
-</ol>
-</div>
-</section>
-<section id="skipnatrue-is-the-default" class="slide level2">
-<h2><code>skipna=True</code> is the default</h2>
-<p>pandas skips missing values unless you tell it not to.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a>counties[<span class="st">"median_income"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>counties[<span class="st">"median_income"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(47.093609535142605)</code></pre>
 </div>
-</div>
-<p>Fifteen county-year rows are missing an income. pandas left them out and said nothing.</p>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a>counties[<span class="st">"median_income"</span>].mean(skipna<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>counties[<span class="st">"median_income"</span>].mean(skipna<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(nan)</code></pre>
 </div>
 </div>
+<p>Fifteen rows are missing an income, and the first answer left them out without a word. When a result looks off, <code>help()</code> the function and check its defaults.</p>
 </div>
-<div class="fragment">
-<p>Handy, and also how rows go missing without anyone noticing. <code>.isna().sum()</code> counts what was skipped. When a result looks off, <code>help()</code> the function and look at what its defaults were doing.</p>
-</div>
-</section>
-<section id="step-3c-average-to-the-state" class="slide level2">
-<h2>Step 3c: average to the state</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a>states_unwt <span class="op">=</span> d2014.groupby([<span class="st">"state"</span>, <span class="st">"expanded"</span>],</span>
-<span id="cb24-2"><a href=""></a>                            as_index<span class="op">=</span><span class="va">False</span>)[<span class="st">"crude_rate_20_64"</span>].mean()</span>
-<span id="cb24-3"><a href=""></a>states_unwt.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(39, 3)</code></pre>
-</div>
-</div>
-<p>Read it left to right, one dot at a time: <em>take <code>d2014</code>, group it by state and expansion status, take <code>crude_rate_20_64</code>, and average it.</em></p>
-<div class="fragment">
-<p><code>["state", "expanded"]</code> is a <strong>list</strong>: two names held as one thing. <code>as_index=False</code> keeps <code>state</code> and <code>expanded</code> as ordinary columns, so we get back a plain table.</p>
-</div>
-<div class="fragment">
-<p><code>.mean()</code> with parentheses runs the method. Leave them off and you get the method itself, not an answer: Python prints <code>&lt;bound method ...&gt;</code> and moves on.</p>
-</div>
+<aside class="notes">
+<p>Before the fragment, ask the room: how many arguments does <code>.mean()</code> take, what does <code>skipna</code> do (scroll to Parameters), and what is it set to if you don’t say? <code>.isna().sum()</code> counts what was skipped.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="the-template-y-broken-down-by-x" class="slide level2">
 <h2>The template: <em>y</em> broken down by <em>x</em></h2>
-<p>That idea is the most reusable thing you will learn today.</p>
+<p>One pattern does most of the work today.</p>
 <div style="font-size: 1.5em; text-align: center; margin: 0.5em 0;">
 <p><code>data.groupby(x)[y].goal()</code></p>
 </div>
@@ -719,64 +612,42 @@ Name: count, dtype: int64</code></pre>
 </tr>
 </tbody>
 </table>
-<p>The t-test is the odd one out: <code>stats.ttest_ind()</code> wants the two groups handed over one at a time.</p>
-<p>You have used it once. You will use it four more times before lunch.</p>
+<p>The t-test is the odd one out: it wants the two groups handed over one at a time.</p>
 </section>
-<section id="that-line-hid-a-decision" class="slide level2">
-<h2>That line hid a decision</h2>
+<section id="step-4c-weight-by-population" class="slide level2">
+<h2>Step 4c: weight by population</h2>
+<p>A rate is deaths over people. To get a state’s rate, turn each county’s rate back into deaths, add up the deaths and the people by state, and divide once.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a>d2014[<span class="st">"population_20_64"</span>].agg([<span class="st">"min"</span>, <span class="st">"max"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a>d2014[<span class="st">"deaths"</span>] <span class="op">=</span> d2014[<span class="st">"crude_rate_20_64"</span>] <span class="op">*</span> d2014[<span class="st">"population_20_64"</span>] <span class="op">/</span> <span class="fl">1e5</span></span>
+<span id="cb26-2"><a href=""></a></span>
+<span id="cb26-3"><a href=""></a>states <span class="op">=</span> d2014.groupby([<span class="st">"state"</span>, <span class="st">"expanded"</span>],</span>
+<span id="cb26-4"><a href=""></a>                       as_index<span class="op">=</span><span class="va">False</span>)[[<span class="st">"deaths"</span>, <span class="st">"population_20_64"</span>]].<span class="bu">sum</span>()</span>
+<span id="cb26-5"><a href=""></a>states[<span class="st">"crude_rate_20_64"</span>] <span class="op">=</span> states[<span class="st">"deaths"</span>] <span class="op">/</span> states[<span class="st">"population_20_64"</span>] <span class="op">*</span> <span class="fl">1e5</span></span>
+<span id="cb26-6"><a href=""></a>states <span class="op">=</span> states.sort_values(<span class="st">"state"</span>)</span>
+<span id="cb26-7"><a href=""></a>states.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>min        224
-max    6298815
-Name: population_20_64, dtype: int64</code></pre>
+<pre><code>(39, 5)</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>224 people, and 6.3 million. Averaging county <strong>rates</strong> gave Loving County, Texas the same weight as Los Angeles.</p>
-</div>
-</section>
-<section id="a-rate-is-deaths-over-people" class="slide level2">
-<h2>A rate is deaths over people</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a>d2014[<span class="st">"deaths"</span>] <span class="op">=</span> d2014[<span class="st">"crude_rate_20_64"</span>] <span class="op">*</span> d2014[<span class="st">"population_20_64"</span>] <span class="op">/</span> <span class="fl">1e5</span></span>
-<span id="cb28-2"><a href=""></a></span>
-<span id="cb28-3"><a href=""></a>states <span class="op">=</span> d2014.groupby([<span class="st">"state"</span>, <span class="st">"expanded"</span>],</span>
-<span id="cb28-4"><a href=""></a>                       as_index<span class="op">=</span><span class="va">False</span>)[[<span class="st">"deaths"</span>, <span class="st">"population_20_64"</span>]].<span class="bu">sum</span>()</span>
-<span id="cb28-5"><a href=""></a>states[<span class="st">"crude_rate_20_64"</span>] <span class="op">=</span> states[<span class="st">"deaths"</span>] <span class="op">/</span> states[<span class="st">"population_20_64"</span>] <span class="op">*</span> <span class="fl">1e5</span></span>
-<span id="cb28-6"><a href=""></a></span>
-<span id="cb28-7"><a href=""></a>states <span class="op">=</span> states.sort_values(<span class="st">"state"</span>)</span>
-<span id="cb28-8"><a href=""></a>states_unwt <span class="op">=</span> states_unwt.sort_values(<span class="st">"state"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Add up the deaths, add up the people, divide once. Same <code>.groupby()</code> template, <code>.sum()</code> instead of <code>.mean()</code>, and double brackets <code>[[ ]]</code> to take two columns at once.</p>
-<div class="fragment">
-<p>Sorting: <code>.groupby()</code> already hands rows back sorted by state, so today it changes nothing. Write it anyway. The same seed on a different row order gives a different p-value, so make the order a decision you can see.</p>
-</div>
-</section>
-<section id="same-39-states-two-different-answers" class="slide level2">
-<h2>Same 39 states, two different answers</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>gap <span class="op">=</span> states_unwt[<span class="st">"crude_rate_20_64"</span>] <span class="op">-</span> states[<span class="st">"crude_rate_20_64"</span>]</span>
-<span id="cb29-2"><a href=""></a>gap.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>count     39.000000
-mean      63.497763
-std       35.349402
-min       -6.355079
-25%       35.360491
-50%       71.739403
-75%       82.872154
-max      137.373265
-Name: crude_rate_20_64, dtype: float64</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a>states[<span class="st">"state"</span>][<span class="bu">abs</span>(gap) <span class="op">&gt;</span> <span class="dv">75</span>].tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>['AR', 'AZ', 'CA', 'FL', 'GA', 'IL', 'KS', 'MO', 'NC', 'ND', 'NM', 'OK', 'OR', 'SC', 'SD', 'TN', 'TX']</code></pre>
-</div>
+<p>The template again: <code>d2014.groupby(x)[y].sum()</code>, where <em>x</em> is state and expansion status and <em>y</em> is deaths and population. Two of each, so both go in a <strong>list</strong>, <code>[ ]</code>.</p>
 </div>
 <div class="fragment">
-<p>Texas is off by more than 130 deaths per 100,000, which is larger than any difference we are about to look for. We use the weighted version, because it is the state’s actual rate.</p>
+<p>Sorting changes nothing today, but the shuffling in step 7 depends on row order. Make the order a decision you can see.</p>
 </div>
+<aside class="notes">
+<p><code>as_index=False</code> keeps state and expanded as ordinary columns, so we get a plain table. Leave the parentheses off <code>.sum</code> and Python prints <code>&lt;bound method ...&gt;</code> instead of an answer.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="i-read-these" class="slide level2">
 <h2>I read these</h2>
@@ -799,9 +670,9 @@ Name: crude_rate_20_64, dtype: float64</code></pre>
 <div class="readrow fragment" data-fragment-index="3">
 <div class="columns">
 <div class="column" style="width:45%;">
-<p><code>d2014.groupby("state")["crude_rate_20_64"].mean()</code></p>
+<p><code>d2014.groupby("state")["population_20_64"].sum()</code></p>
 </div><div class="column" style="width:55%;">
-<p>“Using <code>d2014</code>, average <code>crude_rate_20_64</code> broken down by <code>state</code>.”</p>
+<p>“Using <code>d2014</code>, add up <code>population_20_64</code> broken down by <code>state</code>.”</p>
 </div></div>
 </div>
 <div class="readrow fragment" data-fragment-index="4">
@@ -862,15 +733,15 @@ Name: crude_rate_20_64, dtype: float64</code></pre>
           display:block!important;
       }</style></aside>
 </section>
-<section id="describe-step-4-look-at-the-comparison" class="slide level2">
-<h2>DESCRIBE · Step 4: look at the comparison</h2>
+<section id="describe-step-5-look-at-the-comparison" class="slide level2">
+<h2>DESCRIBE · Step 5: look at the comparison</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a>states.boxplot(column<span class="op">=</span><span class="st">"crude_rate_20_64"</span>, by<span class="op">=</span><span class="st">"expanded"</span>)</span>
-<span id="cb33-2"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href=""></a>states.boxplot(column<span class="op">=</span><span class="st">"crude_rate_20_64"</span>, by<span class="op">=</span><span class="st">"expanded"</span>)</span>
+<span id="cb28-2"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="01-python-presentation_files/figure-revealjs/unnamed-chunk-19-3.png" class="quarto-figure quarto-figure-center r-stretch"><div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a>states.groupby(<span class="st">"expanded"</span>)[<span class="st">"crude_rate_20_64"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img data-src="01-python-presentation_files/figure-revealjs/unnamed-chunk-17-3.png" class="quarto-figure quarto-figure-center r-stretch"><div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a>states.groupby(<span class="st">"expanded"</span>)[<span class="st">"crude_rate_20_64"</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>expanded
 0    390.166064
@@ -880,12 +751,12 @@ Name: crude_rate_20_64, dtype: float64</code></pre>
 </div>
 <p><code>.boxplot()</code> starts its own fresh picture, so no <code>plt.figure()</code> this time.</p>
 </section>
-<section id="describe-step-4-the-estimate-as-one-number" class="slide level2">
-<h2>DESCRIBE · Step 4: the estimate, as one number</h2>
+<section id="describe-step-5-the-estimate-as-one-number" class="slide level2">
+<h2>DESCRIBE · Step 5: the estimate, as one number</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a>group_means <span class="op">=</span> states.groupby(<span class="st">"expanded"</span>)[<span class="st">"crude_rate_20_64"</span>].mean()</span>
-<span id="cb36-2"><a href=""></a>diff_obs <span class="op">=</span> group_means[<span class="dv">1</span>] <span class="op">-</span> group_means[<span class="dv">0</span>]</span>
-<span id="cb36-3"><a href=""></a>diff_obs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a>group_means <span class="op">=</span> states.groupby(<span class="st">"expanded"</span>)[<span class="st">"crude_rate_20_64"</span>].mean()</span>
+<span id="cb31-2"><a href=""></a>diff_obs <span class="op">=</span> group_means[<span class="dv">1</span>] <span class="op">-</span> group_means[<span class="dv">0</span>]</span>
+<span id="cb31-3"><a href=""></a>diff_obs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(-39.177656336384814)</code></pre>
 </div>
@@ -896,17 +767,17 @@ Name: crude_rate_20_64, dtype: float64</code></pre>
 <p><code>group_means[1]</code> is the row <em>labelled</em> 1: the expanded states. <code>np.float64(...)</code> is numpy saying what <em>kind</em> of number this is. The number is the part inside.</p>
 </div>
 </section>
-<section id="test-step-5-the-test-you-already-know" class="slide level2">
-<h2>TEST · Step 5: the test you already know</h2>
+<section id="test-step-6-the-test-you-already-know" class="slide level2">
+<h2>TEST · Step 6: the test you already know</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href=""></a>result <span class="op">=</span> stats.ttest_ind(states[<span class="st">"crude_rate_20_64"</span>][states[<span class="st">"expanded"</span>] <span class="op">==</span> <span class="dv">1</span>],</span>
-<span id="cb38-2"><a href=""></a>                         states[<span class="st">"crude_rate_20_64"</span>][states[<span class="st">"expanded"</span>] <span class="op">==</span> <span class="dv">0</span>],</span>
-<span id="cb38-3"><a href=""></a>                         equal_var<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb38-4"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a>result <span class="op">=</span> stats.ttest_ind(states[<span class="st">"crude_rate_20_64"</span>][states[<span class="st">"expanded"</span>] <span class="op">==</span> <span class="dv">1</span>],</span>
+<span id="cb33-2"><a href=""></a>                         states[<span class="st">"crude_rate_20_64"</span>][states[<span class="st">"expanded"</span>] <span class="op">==</span> <span class="dv">0</span>],</span>
+<span id="cb33-3"><a href=""></a>                         equal_var<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb33-4"><a href=""></a>result</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>TtestResult(statistic=np.float64(-1.5434721815517884), pvalue=np.float64(0.13180569962554284), df=np.float64(34.632273771767))</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href=""></a>result.confidence_interval()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>result.confidence_interval()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>ConfidenceInterval(low=np.float64(-90.72705983416654), high=np.float64(12.371747161396911))</code></pre>
 </div>
@@ -920,23 +791,20 @@ Name: crude_rate_20_64, dtype: float64</code></pre>
 <h2>Which way round?</h2>
 <p>We computed <code>diff_obs = −39</code>. The interval says <strong>−91 to +12</strong>. Same sign.</p>
 <div class="fragment">
-<p>That is not luck. <code>ttest_ind(a, b)</code> subtracts <strong>a − b</strong>, and we handed it the expanded states first: <strong>group 1 − group 0</strong>, the same way round as <code>diff_obs</code>.</p>
+<p><code>ttest_ind(a, b)</code> subtracts <strong>a − b</strong>, and we handed it the expanded states first: <strong>group 1 − group 0</strong>, the same way round as <code>diff_obs</code>.</p>
 </div>
 <div class="fragment">
-<p>Hand them over the other way round and every sign flips, with no error and no warning. This catches everyone once. When a sign looks wrong, find out which way round the subtraction went before assuming you broke something.</p>
-</div>
-<div class="fragment">
-<p><code>statistic = −1.54</code> and <code>df = 34.63</code> you can ignore today.</p>
+<p>Swap them and every sign flips, with no warning. When a sign looks wrong, check which way round the subtraction went.</p>
 </div>
 </section>
-<section id="check-step-6-what-does-p-0.13-actually-mean" class="slide level2">
-<h2>CHECK · Step 6: what does p = 0.13 actually mean?</h2>
+<section id="check-step-7-what-does-p-0.13-actually-mean" class="slide level2">
+<h2>CHECK · Step 7: what does p = 0.13 actually mean?</h2>
 <p>Most of us walk in carrying this one:</p>
 <blockquote>
 <p><del>“p is the probability the result is due to chance.”</del></p>
 </blockquote>
 <div class="fragment">
-<p>It’s the most common answer, and it has the logic <strong>backwards</strong>. A p-value never tells you the probability that chance caused your result.</p>
+<p>It has the logic <strong>backwards</strong>.</p>
 </div>
 <div class="fragment">
 <p>It <strong>assumes chance is all there is</strong>, and then asks:</p>
@@ -945,8 +813,8 @@ Name: crude_rate_20_64, dtype: float64</code></pre>
 </blockquote>
 </div>
 </section>
-<section id="check-step-6-so-lets-build-one" class="slide level2">
-<h2>CHECK · Step 6: so let’s build one</h2>
+<section id="check-step-7-so-lets-build-one" class="slide level2">
+<h2>CHECK · Step 7: so let’s build one</h2>
 <ul>
 <li class="fragment">The null hypothesis says the labels are meaningless.</li>
 <li class="fragment">So let’s <em>make</em> them meaningless by shuffling which states expanded.</li>
@@ -957,63 +825,65 @@ Name: crude_rate_20_64, dtype: float64</code></pre>
 <p>We don’t have to trust a formula for this. <strong>We can just do it.</strong></p>
 </div>
 </section>
-<section id="step-6-one-fake-world" class="slide level2">
-<h2>Step 6: one fake world</h2>
+<section id="step-7-one-fake-world" class="slide level2">
+<h2>Step 7: one fake world</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>rng <span class="op">=</span> np.random.default_rng()</span>
-<span id="cb42-2"><a href=""></a>shuffled <span class="op">=</span> rng.permutation(states[<span class="st">"expanded"</span>])</span>
-<span id="cb42-3"><a href=""></a></span>
-<span id="cb42-4"><a href=""></a>(states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">1</span>].mean() <span class="op">-</span></span>
-<span id="cb42-5"><a href=""></a> states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">0</span>].mean())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a>rng <span class="op">=</span> np.random.default_rng()</span>
+<span id="cb37-2"><a href=""></a>shuffled <span class="op">=</span> rng.permutation(states[<span class="st">"expanded"</span>])</span>
+<span id="cb37-3"><a href=""></a></span>
+<span id="cb37-4"><a href=""></a>(states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">1</span>].mean() <span class="op">-</span></span>
+<span id="cb37-5"><a href=""></a> states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">0</span>].mean())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(6.1428020183844865)</code></pre>
+<pre><code>np.float64(-37.74574697362232)</code></pre>
 </div>
 </div>
 <p><code>rng</code> is a random number generator: the thing that does the shuffling. Run it again:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href=""></a>shuffled <span class="op">=</span> rng.permutation(states[<span class="st">"expanded"</span>])</span>
-<span id="cb44-2"><a href=""></a>(states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">1</span>].mean() <span class="op">-</span></span>
-<span id="cb44-3"><a href=""></a> states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">0</span>].mean())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href=""></a>shuffled <span class="op">=</span> rng.permutation(states[<span class="st">"expanded"</span>])</span>
+<span id="cb39-2"><a href=""></a>(states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">1</span>].mean() <span class="op">-</span></span>
+<span id="cb39-3"><a href=""></a> states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">0</span>].mean())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(-53.04801344850415)</code></pre>
+<pre><code>np.float64(-9.621431079807053)</code></pre>
 </div>
 </div>
 <p>That bouncing <strong>is</strong> sampling variation. You are looking straight at it.</p>
 </section>
-<section id="step-6-a-thousand-fake-worlds" class="slide level2">
-<h2>Step 6: a thousand fake worlds</h2>
+<section id="step-7-a-thousand-fake-worlds" class="slide level2">
+<h2>Step 7: a thousand fake worlds</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href=""></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">2026</span>)</span>
-<span id="cb46-2"><a href=""></a>diffs <span class="op">=</span> []</span>
-<span id="cb46-3"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
-<span id="cb46-4"><a href=""></a>    shuffled <span class="op">=</span> rng.permutation(states[<span class="st">"expanded"</span>])</span>
-<span id="cb46-5"><a href=""></a>    diffs.append(states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">1</span>].mean() <span class="op">-</span></span>
-<span id="cb46-6"><a href=""></a>                 states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">0</span>].mean())</span>
-<span id="cb46-7"><a href=""></a>diffs <span class="op">=</span> np.array(diffs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href=""></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">2026</span>)</span>
+<span id="cb41-2"><a href=""></a>diffs <span class="op">=</span> []</span>
+<span id="cb41-3"><a href=""></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb41-4"><a href=""></a>    shuffled <span class="op">=</span> rng.permutation(states[<span class="st">"expanded"</span>])</span>
+<span id="cb41-5"><a href=""></a>    diffs.append(states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">1</span>].mean() <span class="op">-</span></span>
+<span id="cb41-6"><a href=""></a>                 states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">0</span>].mean())</span>
+<span id="cb41-7"><a href=""></a>diffs <span class="op">=</span> np.array(diffs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The seed, <code>2026</code>, makes the shuffling repeatable. <code>for i in range(1000):</code> runs the indented lines 1000 times, and <code>.append()</code> keeps each answer. The indent <em>is</em> the grouping, so line it up exactly.</p>
-<p>One thousand worlds in which the policy did nothing.</p>
+<p>The seed, <code>2026</code>, makes the shuffling repeatable. <code>for i in range(1000):</code> runs the indented lines 1000 times; <code>.append()</code> keeps each answer. The indent <em>is</em> the grouping, so line it up exactly.</p>
 </section>
-<section id="step-6-and-there-it-is" class="slide level2">
-<h2>Step 6: and there it is</h2>
+<section id="step-7-and-there-it-is" class="slide level2">
+<h2>Step 7: and there it is</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href=""></a>plt.figure()</span>
-<span id="cb47-2"><a href=""></a>plt.hist(diffs)</span>
-<span id="cb47-3"><a href=""></a>plt.axvline(diff_obs, color<span class="op">=</span><span class="st">"red"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb47-4"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href=""></a>plt.figure()</span>
+<span id="cb42-2"><a href=""></a>plt.hist(diffs)</span>
+<span id="cb42-3"><a href=""></a>plt.axvline(diff_obs, color<span class="op">=</span><span class="st">"red"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb42-4"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="01-python-presentation_files/figure-revealjs/unnamed-chunk-26-5.png" class="quarto-figure quarto-figure-center r-stretch"><div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href=""></a>(<span class="bu">abs</span>(diffs) <span class="op">&gt;=</span> <span class="bu">abs</span>(diff_obs)).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img data-src="01-python-presentation_files/figure-revealjs/unnamed-chunk-24-5.png" class="quarto-figure quarto-figure-center r-stretch"><div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href=""></a>(<span class="bu">abs</span>(diffs) <span class="op">&gt;=</span> <span class="bu">abs</span>(diff_obs)).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.131)</code></pre>
 </div>
 </div>
-<p>Same <code>plt.hist()</code> from step 2, pointed at something new. That number is a p-value you built out of <code>rng.permutation()</code>, <code>.mean()</code>, and counting.</p>
+<p>A p-value you built out of shuffling and counting.</p>
+<div class="fragment">
+<p>The t-test said 0.132. Not identical, and it shouldn’t be: 1000 shuffles is itself a sample. Same conclusion: not distinguishable from chance with 39 states.</p>
+</div>
 </section>
 <section id="that-one-line-does-three-things" class="slide level2">
 <h2>That one line does three things</h2>
-<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a>( <span class="bu">abs</span>(diffs) <span class="op">&gt;=</span> <span class="bu">abs</span>(diff_obs) ).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href=""></a>( <span class="bu">abs</span>(diffs) <span class="op">&gt;=</span> <span class="bu">abs</span>(diff_obs) ).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top">
 <colgroup>
 <col style="width: 50%">
@@ -1034,46 +904,30 @@ Name: crude_rate_20_64, dtype: float64</code></pre>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="drop-the-abs-and-see" class="slide level2">
-<h2>Drop the <code>abs()</code> and see</h2>
+<div class="fragment">
+<p>Drop the <code>abs()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href=""></a>(diffs <span class="op">&gt;=</span> diff_obs).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href=""></a>(diffs <span class="op">&gt;=</span> diff_obs).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(0.915)</code></pre>
 </div>
 </div>
-<div class="fragment">
-<p>0.915, not something near 0.07. Our difference is negative, so “shuffles at least as large as ours” counts almost all of them.</p>
-</div>
-<div class="fragment">
-<p>Python does not warn you. If you want the one-sided p in the direction of the effect, it is <code>(diffs &lt;= diff_obs).mean()</code>. Getting this wrong returns a number, not an error.</p>
+<p>Our difference is negative, so this counts almost every shuffle. No warning, just a wrong number.</p>
 </div>
 </section>
-<section id="why-it-doesnt-exactly-match-ttest_ind" class="slide level2">
-<h2>Why it doesn’t exactly match <code>ttest_ind()</code></h2>
-<p>Permutation gave <code>0.131</code>. The t-test gave <code>0.132</code>.</p>
-<ul>
-<li class="fragment"><code>ttest_ind()</code> assumes the difference follows a normal distribution. The shuffle does not. It does assume the labels could have been dealt out any other way, which is true here because each state chose once.</li>
-<li class="fragment">1000 shuffles is itself a sample. Change the seed and the second digit moves. Run 10,000 if that matters to you.</li>
-</ul>
-<div class="fragment">
-<p>Two methods, same conclusion: this difference is not distinguishable from chance with 39 states.</p>
-</div>
-</section>
-<section id="model-step-7-the-same-answer-as-a-regression" class="slide level2">
-<h2>MODEL · Step 7: the same answer, as a regression</h2>
+<section id="model-step-8-the-same-answer-as-a-regression" class="slide level2">
+<h2>MODEL · Step 8: the same answer, as a regression</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href=""></a>m <span class="op">=</span> smf.ols(<span class="st">"crude_rate_20_64 ~ expanded"</span>, data<span class="op">=</span>states).fit()</span>
-<span id="cb53-2"><a href=""></a><span class="bu">print</span>(m.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href=""></a>m <span class="op">=</span> smf.ols(<span class="st">"crude_rate_20_64 ~ expanded"</span>, data<span class="op">=</span>states).fit()</span>
+<span id="cb48-2"><a href=""></a><span class="bu">print</span>(m.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                            OLS Regression Results                            
 ==============================================================================
 Dep. Variable:       crude_rate_20_64   R-squared:                       0.060
 Model:                            OLS   Adj. R-squared:                  0.035
 Method:                 Least Squares   F-statistic:                     2.380
-Date:                Mon, 21 Sep 2026   Prob (F-statistic):              0.131
-Time:                        10:55:44   Log-Likelihood:                -224.55
+Date:                Tue, 29 Sep 2026   Prob (F-statistic):              0.131
+Time:                        12:55:18   Log-Likelihood:                -224.55
 No. Observations:                  39   AIC:                             453.1
 Df Residuals:                      37   BIC:                             456.4
 Df Model:                           1                                         
@@ -1096,8 +950,8 @@ Notes:
 </div>
 <p><code>smf.ols()</code> sets the model up, outcome <code>~</code> predictor. <code>.fit()</code> fits it. <code>print()</code> lays the table out.</p>
 </section>
-<section id="model-step-7-you-need-two-numbers-from-that" class="slide level2">
-<h2>MODEL · Step 7: you need two numbers from that</h2>
+<section id="model-step-8-you-need-two-numbers-from-that" class="slide level2">
+<h2>MODEL · Step 8: you need two numbers from that</h2>
 <p>Both on the <strong><code>expanded</code></strong> row:</p>
 <table class="caption-top">
 <tbody>
@@ -1113,28 +967,30 @@ Notes:
 </tr>
 </tbody>
 </table>
-<p>And one bonus, on the row above: <code>Intercept</code> is the mean of the group coded 0 — the same number from step 4. The intercept is just the baseline group.</p>
+<p><code>Intercept</code>, on the row above, is the mean of the group coded 0: the baseline. Everything else answers questions we haven’t asked.</p>
 <div class="fragment">
-<p>Everything else (std err, R-squared, F-statistic, the blocks above and below the table) answers questions we haven’t asked. You are <strong>not</strong> missing something by skipping them today.</p>
+<p>A difference in means <em>is</em> a regression coefficient. t-test, permutation test, and regression: three ways of asking one question, and they agree.</p>
 </div>
+<aside class="notes">
+<p><code>equal_var=False</code> is Welch’s correction, which is why the t-test’s df was 34.63 rather than 37. <code>equal_var=True</code> matches <code>ols()</code> to the decimal.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="model-step-7-look-what-happened" class="slide level2">
-<h2>MODEL · Step 7: look what happened</h2>
-<p>A difference in means <em>is</em> a regression coefficient.</p>
-<p>t-test, permutation test, and regression are three ways of asking one question, and they agree.</p>
-<div class="fragment">
-<p>Once you can read this output you can read most quantitative papers.</p>
-</div>
-<div class="fragment">
-<p>(<code>equal_var=False</code> asks for Welch’s correction, which is also why the t-test’s <code>df</code> was 34.63 rather than 37. <code>equal_var=True</code> matches <code>ols()</code> to the decimal.)</p>
-</div>
-</section>
-<section id="step-8-why-we-used-39-rows-and-not-2372" class="slide level2">
-<h2>Step 8: why we used 39 rows and not 2,372</h2>
+<section id="step-9-why-we-used-39-rows-and-not-2372" class="slide level2">
+<h2>Step 9: why we used 39 rows and not 2,372</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href=""></a>stats.ttest_ind(d2014[<span class="st">"crude_rate_20_64"</span>][d2014[<span class="st">"expanded"</span>] <span class="op">==</span> <span class="dv">1</span>],</span>
-<span id="cb55-2"><a href=""></a>                d2014[<span class="st">"crude_rate_20_64"</span>][d2014[<span class="st">"expanded"</span>] <span class="op">==</span> <span class="dv">0</span>],</span>
-<span id="cb55-3"><a href=""></a>                equal_var<span class="op">=</span><span class="va">False</span>).pvalue</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href=""></a>stats.ttest_ind(d2014[<span class="st">"crude_rate_20_64"</span>][d2014[<span class="st">"expanded"</span>] <span class="op">==</span> <span class="dv">1</span>],</span>
+<span id="cb50-2"><a href=""></a>                d2014[<span class="st">"crude_rate_20_64"</span>][d2014[<span class="st">"expanded"</span>] <span class="op">==</span> <span class="dv">0</span>],</span>
+<span id="cb50-3"><a href=""></a>                equal_var<span class="op">=</span><span class="va">False</span>).pvalue</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>np.float64(5.687913728799441e-17)</code></pre>
 </div>
@@ -1144,23 +1000,76 @@ Notes:
 <p><code>p</code> is about 6e-17. Overwhelming, and wrong.</p>
 </div>
 <div class="fragment">
-<p>It believes it has 2,372 independent observations. It has 39. Every county in a state shares one policy decision, so those rows repeat 39 pieces of information rather than adding 2,372 new ones.</p>
+<p>It thinks it has 2,372 independent observations. It has 39: every county in a state shares one policy decision.</p>
 </div>
 <div class="fragment">
-<p>When a p-value looks too good, ask how many independent things you actually measured. It is usually fewer than the number of rows.</p>
+<p>When a p-value looks too good, ask how many independent things you actually measured.</p>
 </div>
 </section>
 <section id="that-was-the-whole-game" class="slide level2">
 <h2>That was the whole game</h2>
-<pre><code>pd.read_csv  .head  .describe            plt.figure  plt.hist  .boxplot
-np.where  .notna  .isna  .value_counts   plt.axvline  plt.show
-.groupby  .mean  .sum  .median  .agg     stats.ttest_ind  .confidence_interval
-abs  .sort_values  .tolist               smf.ols  .fit  .summary  print
-np.random.default_rng  .permutation      range  .append  np.array</code></pre>
-<p>Thirty-one functions and methods, and you have a difference in means, a permutation test, and a regression, plus the reason to distrust one of them.</p>
+<div style="font-size: 0.8em;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>What you did</th>
+<th>With</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1–2</td>
+<td>Load tools, read the data</td>
+<td><code>pd.read_csv()</code> <code>.head()</code></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Look at the outcome</td>
+<td><code>plt.figure()</code> <code>plt.hist()</code> <code>plt.show()</code></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Get the data ready</td>
+<td><code>np.where()</code> <code>.notna()</code> <code>.isna()</code> <code>.value_counts()</code> <code>.groupby()</code> <code>.sum()</code> <code>.sort_values()</code></td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Describe</td>
+<td><code>.boxplot()</code> <code>.mean()</code></td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>Test</td>
+<td><code>stats.ttest_ind()</code> <code>.confidence_interval()</code></td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>Check</td>
+<td><code>np.random.default_rng()</code> <code>.permutation()</code> <code>range()</code> <code>.append()</code> <code>np.array()</code> <code>plt.axvline()</code> <code>abs()</code></td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>Model</td>
+<td><code>smf.ols()</code> <code>.fit()</code> <code>.summary()</code> <code>print()</code></td>
+</tr>
+<tr class="even">
+<td>Module 2</td>
+<td>Split at the median</td>
+<td><code>.median()</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Twenty-eight functions and methods: a difference in means, a permutation test, and a regression, plus the reason to distrust one of them.</p>
 </section>
-<section id="glossary-the-thirty-one-functions-and-methods" class="slide level2">
-<h2>Glossary: the thirty-one functions and methods</h2>
+<section id="glossary-the-twenty-eight-functions-and-methods" class="slide level2">
+<h2>Glossary: the twenty-eight functions and methods</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div style="font-size: 0.52em;">
@@ -1174,10 +1083,6 @@ np.random.default_rng  .permutation      range  .append  np.array</code></pre>
 <tr class="even">
 <td><code>.head()</code></td>
 <td>show the first few rows</td>
-</tr>
-<tr class="odd">
-<td><code>.describe()</code></td>
-<td>count, mean, spread and quartiles of a column</td>
 </tr>
 </tbody>
 </table>
@@ -1243,20 +1148,12 @@ np.random.default_rng  .permutation      range  .append  np.array</code></pre>
 <td>the middle value</td>
 </tr>
 <tr class="odd">
-<td><code>.agg()</code></td>
-<td>several summaries at once</td>
-</tr>
-<tr class="even">
 <td><code>abs()</code></td>
 <td>drop the minus sign</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>.sort_values()</code></td>
 <td>sort the rows by a column</td>
-</tr>
-<tr class="even">
-<td><code>.tolist()</code></td>
-<td>print a column compactly, as a list</td>
 </tr>
 </tbody>
 </table>
@@ -1481,22 +1378,19 @@ np.random.default_rng  .permutation      range  .append  np.array</code></pre>
 <p><strong>Do high-poverty states have higher working-age mortality?</strong></p>
 </blockquote>
 <ul>
-<li class="fragment">Same eight steps. Same template. New grouping variable.</li>
+<li class="fragment">Same nine steps. Same template. New grouping variable.</li>
 <li class="fragment">Where you see <code>______</code>, fill it in.</li>
-<li class="fragment"><strong>One types, one reads the code out loud and predicts</strong> what it will do before you run it. Swap at step 4.</li>
+<li class="fragment"><strong>One types, one reads the code out loud and predicts</strong> what it will do before you run it. Swap at step 5.</li>
 <li class="fragment">Stuck two minutes? Red sticky. Don’t burn the module on one blank.</li>
 </ul>
 </section>
 <section id="whats-new-in-module-2" class="slide level2">
 <h2>What’s new in Module 2</h2>
 <p>Two things you have not seen:</p>
-<p><strong>Making groups from a number.</strong> Expansion came ready-made as 0/1. Poverty is continuous, so you split it at the median with <code>np.where()</code>.</p>
-<p><strong>A result that runs off the page.</strong> Your observed difference may fall outside the whole null distribution. <code>plt.axvline()</code> widens the axis to fit it:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href=""></a>plt.hist(diffs)</span>
-<span id="cb58-2"><a href=""></a>plt.axvline(diff_obs, color<span class="op">=</span><span class="st">"red"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)   <span class="co"># stretches the x-axis if it must</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>So the red line may sit far out on its own. That empty space <em>is</em> the result, not a drawing glitch.</p>
+<p><strong>Making groups from a number.</strong> Poverty is continuous, so you split it at the median with <code>np.where()</code>.</p>
+<p><strong>A result that runs off the page.</strong> Your red line may sit far out past the whole null distribution. That empty space <em>is</em> the result, not a drawing glitch.</p>
 <div class="fragment">
-<p>If <code>(abs(diffs) &gt;= abs(diff_obs)).mean()</code> gives you <code>0</code>, that is not p = 0. None of 1000 shuffles got that far, so <strong>report p &lt; 0.001</strong>.</p>
+<p>If the p-value line gives you <code>0</code>, that is not p = 0. None of 1000 shuffles got that far, so <strong>report p &lt; 0.001</strong>.</p>
 </div>
 </section></section>
 <section>
@@ -1511,10 +1405,10 @@ np.random.default_rng  .permutation      range  .append  np.array</code></pre>
 <p><strong>Do states with above-median unemployment have higher working-age mortality?</strong></p>
 </blockquote>
 <ul>
-<li class="fragment">Eight steps, no code. You have done all eight, twice.</li>
+<li class="fragment">Nine steps, no code. You have done all nine, twice.</li>
 <li class="fragment">Modules 1 and 2 are open in your other tabs. <strong>Use them</strong>.</li>
 <li class="fragment">Copying your own working code and changing a variable name is not cheating. It is the job.</li>
-<li class="fragment">Step 8 asks you to write the finding in prose. Do that one.</li>
+<li class="fragment">Step 9 asks you to write the finding in prose. Do that one.</li>
 </ul>
 </section>
 <section id="if-you-finish-early" class="slide level2 scrollable">
@@ -1540,7 +1434,7 @@ np.random.default_rng  .permutation      range  .append  np.array</code></pre>
 <li class="fragment"><strong>Quarto</strong>, turning a script into a paper. Two minutes, right now.</li>
 </ul>
 <div class="fragment">
-<p>None of it is a prerequisite for what you did today. You can start Monday with thirty-one functions and methods.</p>
+<p>None of it is a prerequisite for what you did today. You can start Monday with twenty-eight functions and methods.</p>
 </div>
 </section>
 <section id="two-rules-for-your-own-work" class="slide level2">
@@ -1576,6 +1470,64 @@ np.random.default_rng  .permutation      range  .append  np.array</code></pre>
 <div class="fragment">
 <p>Your script from today is the best reference you now own. It works, you typed it, and you know what every line does.</p>
 </div>
+</section></section>
+<section>
+<section id="appendix" class="title-slide slide level1 center">
+<h1>Appendix</h1>
+
+</section>
+<section id="inside-the-quotes-a-path" class="slide level2">
+<h2>Inside the quotes: a path</h2>
+<div class="anatomy big">
+<p><span class="fragment highlight-current-red" data-fragment-index="1">"</span><span class="fragment highlight-current-red" data-fragment-index="2">data/</span><span class="fragment highlight-current-red" data-fragment-index="3">medicaid<span class="fragment highlight-current-red" data-fragment-index="4">.csv</span></span><span class="fragment highlight-current-red" data-fragment-index="1">"</span></p>
+</div>
+<div class="fragment" data-fragment-index="1">
+<p><strong><code>" "</code></strong> make it a <strong>string</strong>: text, taken as-is. Without them, Python reads <code>medicaid</code> as the name of an object, goes looking, and fails.</p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p><strong><code>data/</code></strong> is a folder. Folder, slash, file: that is a <strong>path</strong>, directions to the file, starting from the folder you opened.</p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p><strong><code>medicaid.csv</code></strong> is the file itself.</p>
+</div>
+<div class="fragment" data-fragment-index="4">
+<p><strong><code>.csv</code></strong> is the <strong>extension</strong>: what kind of file it is. Comma-separated values, a table saved as plain text. <code>pd.read_csv()</code> reads this kind; an Excel <code>.xlsx</code> needs a different function. Finder and File Explorer hide extensions by default, so you may only see <code>medicaid</code> there.</p>
+</div>
+</section>
+<section id="mac-vs.-windows" class="slide level2">
+<h2>Mac vs.&nbsp;Windows</h2>
+<p>The full path to the same file, on two laptops:</p>
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td><strong>Mac</strong></td>
+<td><code>/Users/you/intro-to-python/data/medicaid.csv</code></td>
+</tr>
+<tr class="even">
+<td><strong>Windows</strong></td>
+<td><code>C:\Users\you\intro-to-python\data\medicaid.csv</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment">Ours skips all of that. <code>data/medicaid.csv</code> starts from the folder you opened, so it is the same on every laptop.</li>
+<li class="fragment">In Python, always write <code>/</code>, even on Windows. A lone <code>\</code> can silently turn into a special character: in <code>"data\new.csv"</code>, the <code>\n</code> becomes a line break, and Python goes looking for a file that does not exist. <code>/</code> never does that.</li>
+</ul>
+</section>
+<section id="set-up-python-once" class="slide level2 scrollable">
+<h2>Set up Python, once</h2>
+<p>For anyone who arrives without a working setup. These go in the <strong>Terminal</strong> (<strong>Terminal → New Terminal</strong>), not your script. Copy them from the README; don’t retype them.</p>
+<ol type="1">
+<li><p>Install <strong>uv</strong>, the tool that sets up Python for you:</p>
+<p>Mac:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href=""></a><span class="ex">curl</span> <span class="at">-LsSf</span> https://astral.sh/uv/install.sh <span class="kw">|</span> <span class="fu">sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Windows:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource powershell number-lines code-with-copy"><code class="sourceCode powershell"><span id="cb53-1"><a href=""></a>powershell <span class="op">-</span>ExecutionPolicy ByPass <span class="op">-</span>c <span class="st">"irm https://astral.sh/uv/install.ps1 | iex"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Close that terminal (the trash-can icon) and open a new one, so it can find uv.</p></li>
+<li><p>Run <code>uv sync</code>.</p></li>
+<li><p>Pick the <code>.venv</code> Python in the top-right corner, then run <code>scripts/00-check.py</code> (<strong>Cmd/Ctrl+Shift+Enter</strong>). It should end with <code>You're ready.</code></p></li>
+</ol>
+<p><code>uv sync</code> builds a <code>.venv</code> folder holding pandas, numpy, scipy, statsmodels, and matplotlib, in the versions this workshop was tested with. It downloads Python 3.12 for it if you need one. Already have a different Python, like 3.14? That’s fine: uv leaves it alone.</p>
 
 </section></section>
     </div>

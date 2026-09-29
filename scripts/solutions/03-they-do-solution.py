@@ -3,7 +3,7 @@
 #  Do above-median-unemployment states have higher mortality?
 # =====================================================================
 
-# ---- 0. Load the tools ----------------------------------------------
+# ---- 1. Load the tools ----------------------------------------------
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,7 +11,7 @@ from scipy import stats
 import statsmodels.formula.api as smf
 
 
-# ---- 1. Get the data ------------------------------------------------
+# ---- 2. Get the data ------------------------------------------------
 states = pd.read_csv("data/medicaid_states.csv")
 
 states.shape       # 39 x 7
@@ -19,14 +19,14 @@ states.columns
 states.head()
 
 
-# ---- 2. Look at the variable before you test it ---------------------
+# ---- 3. Look at the variable before you test it ---------------------
 plt.figure()
 plt.hist(states["unemp_rate"])
 plt.show()
 # Median 6.19, spanning about 2.8 to 8.2.
 
 
-# ---- 3. Build the grouping variable ---------------------------------
+# ---- 4. Build the grouping variable ---------------------------------
 states["unemp_rate"].isna().sum()   # 0, no guard needed
 # (The county file has 21 NaNs in unemp_rate. Build state averages from
 #  it yourself with .groupby() and .mean(), and pandas SKIPS those rows
@@ -41,7 +41,7 @@ states["high_unemp"].value_counts()
 # 20 low, 19 high, same off-by-one as Module 2, same reason.
 
 
-# ---- 4. Look at the comparison --------------------------------------
+# ---- 5. Look at the comparison --------------------------------------
 states.boxplot(column="crude_rate_20_64", by="high_unemp")
 plt.show()
 
@@ -54,7 +54,7 @@ diff_obs
 # 100,000 working-age people.
 
 
-# ---- 5. Run the test you already know -------------------------------
+# ---- 6. Run the test you already know -------------------------------
 result = stats.ttest_ind(states["crude_rate_20_64"][states["high_unemp"] == 1],
                          states["crude_rate_20_64"][states["high_unemp"] == 0],
                          equal_var=False)
@@ -69,7 +69,7 @@ result.confidence_interval()
 # than settled.
 
 
-# ---- 6. Build the p-value yourself ----------------------------------
+# ---- 7. Build the p-value yourself ----------------------------------
 rng = np.random.default_rng(2026)
 diffs = []
 for i in range(1000):
@@ -87,7 +87,7 @@ plt.show()
 # 0.020, against ttest_ind's 0.029. Same conclusion, no formula required.
 
 
-# ---- 7. The same answer as a regression -----------------------------
+# ---- 8. The same answer as a regression -----------------------------
 m = smf.ols("crude_rate_20_64 ~ high_unemp", data=states).fit()
 print(m.summary())
 # high_unemp coef = 55.87, matching diff_obs exactly.
@@ -96,7 +96,7 @@ print(m.summary())
 # matches ols().
 
 
-# ---- 8. Write down what you found -----------------------------------
+# ---- 9. Write down what you found -----------------------------------
 #
 # ANSWER:
 # Across 39 states in 2014, those with above-median unemployment had

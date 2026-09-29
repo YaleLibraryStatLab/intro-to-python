@@ -1,0 +1,19 @@
+[project]
+name = "intro-to-python"
+version = "1.0.0"
+description = "StatLab workshop: Introduction to Statistical Programming in Python"
+readme = "README.md"
+requires-python = ">=3.12"
+# The versions the workshop scripts and slides were tested with.
+# `uv sync` installs exactly these, from uv.lock.
+dependencies = [
+    "pandas==3.0.6",
+    "numpy==2.5.3",
+    "scipy==1.18.1",
+    "statsmodels==0.15.0",
+    "matplotlib==3.11.2",
+]
+
+[tool.uv]
+# A folder of scripts, not an installable package: `uv sync` only builds .venv.
+package = false
