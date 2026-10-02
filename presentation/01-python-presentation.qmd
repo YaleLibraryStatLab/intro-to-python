@@ -1,14 +1,36 @@
 ---
-title: "Intro to Statistical Programming in Python"
+title: "Introduction to Statistical Programming in Python"
+subtitle: "Yale Library StatLab"
+author:
+  - name: "Ted Ellsworth, PhD"
+    affiliations:
+      - name: "Yale Statistical Support Services"
+        url: "https://library.yale.edu/help-and-research-support/research-support/statlab"
+term: "Fall 2026"
 engine: knitr
 format:
   revealjs:
-    theme: default
-    slide-number: true
-    preview-links: auto
+    theme: custom.scss
     css: styles.css
-    scrollable: true
-    height: 900
+    width: 1050
+    height: 700
+    margin: 0.1
+    center: false
+    slide-number: c/t
+    controls: false
+    progress: true
+    navigation-mode: linear
+    transition: none
+    hash: true
+    highlight-style: github
+    code-line-numbers: false
+    preview-links: auto
+    footer: "Yale Library | StatLab"
+    template-partials:
+      - title-slide.html
+    include-after-body:
+      - running-title.html
+      - slide-fit.html
 execute:
   echo: true
   warning: false
@@ -43,29 +65,21 @@ pd.set_option("display.max_columns", 20)
 pd.set_option("display.width", 78)
 ```
 
-## Playing the ballgame early
+## What you will learn
 
-:::: {.columns}
+You learn Python today by *doing* statistics: one complete analysis,
+start to finish.
 
-::: {.column width="50%"}
-![](mets-stadium.jpeg){fig-align="center" width="100%"}
-:::
-
-::: {.column width="50%"}
-You learn Python today by *doing* statistics: a junior version of the
-whole game, start to finish.
-
-**What you will learn**
-
-- read real data
+::: incremental
+- read real data and look at it
 - compare two groups
 - test the difference
-- fit a regression
-
-Twenty-eight functions and methods.
+- fit a regression and read the output
 :::
 
-::::
+::: fragment
+It takes twenty-eight functions and methods. That is the whole list.
+:::
 
 ::: fragment
 It is **not** a crash course in Python programming, or in hypothesis
@@ -77,7 +91,7 @@ testing.
 > **Did states that expanded Medicaid in 2014 have lower working-age
 > mortality than states that did not?**
 
-## Today's Ballgame
+## Today's plan
 
 ::: incremental
 **Explore**: What does mortality look like across states that expanded Medicaid and those that did not?
@@ -140,7 +154,9 @@ Open the **folder**, not a file: it keeps every file path short. No
 `You're ready.` before today? Red sticky now.
 :::
 
-# Module 1: I do
+##
+
+### Module 1: I do
 
 ## Two things to name first
 
@@ -264,7 +280,7 @@ decorating anything yet.
 
 ## What are those `[" "]`?
 
-::: {style="font-size: 1.3em; text-align: center; margin: 0.6em 0;"}
+::: {.codeline style="font-size: calc(1.3 * var(--u));"}
 `plt.hist(counties`[`["`]{.pop}`crude_rate_20_64`[`"]`]{.pop}`)`
 :::
 
@@ -367,7 +383,7 @@ doubled.
 
 ## Reading a line, right to left
 
-::: {style="font-size: 1.05em; text-align: center; margin: 0.5em 0;"}
+::: {.codeline style="font-size: calc(1.05 * var(--u));"}
 `d2014 = counties[counties["year"] == 2014]`
 :::
 
@@ -453,7 +469,7 @@ don't say? `.isna().sum()` counts what was skipped.
 
 One pattern does most of the work today.
 
-::: {style="font-size: 1.5em; text-align: center; margin: 0.5em 0;"}
+::: {.codeline style="font-size: calc(1.5 * var(--u));"}
 `data.groupby(x)[y].goal()`
 :::
 
@@ -504,93 +520,77 @@ plain table. Leave the parentheses off `.sum` and Python prints
 ## I read these
 
 ::: {.readrow .fragment fragment-index=1}
-:::: {.columns}
-::: {.column width="45%"}
+::: {.code}
 `plt.hist(counties["crude_rate_20_64"])`
 :::
-::: {.column width="55%"}
+::: {.says}
 "Take the `crude_rate_20_64` column out of `counties`, and draw a histogram of it."
 :::
-::::
 :::
 
 ::: {.readrow .fragment fragment-index=2}
-:::: {.columns}
-::: {.column width="45%"}
+::: {.code}
 `d2014 = counties[counties["year"] == 2014]`
 :::
-::: {.column width="55%"}
+::: {.says}
 "From `counties`, keep the rows where `year` is 2014, and store that as `d2014`."
 :::
-::::
 :::
 
 ::: {.readrow .fragment fragment-index=3}
-:::: {.columns}
-::: {.column width="45%"}
+::: {.code}
 `d2014.groupby("state")["population_20_64"].sum()`
 :::
-::: {.column width="55%"}
+::: {.says}
 "Using `d2014`, add up `population_20_64` broken down by `state`."
 :::
-::::
 :::
 
 ::: {.readrow .fragment fragment-index=4}
-:::: {.columns}
-::: {.column width="45%"}
+::: {.code}
 `d2014["deaths"] = d2014["crude_rate_20_64"] * d2014["population_20_64"] / 1e5`
 :::
-::: {.column width="55%"}
+::: {.says}
 "Multiply each county's rate by its population, divide by 100,000, and store the result as a new column called `deaths`."
 :::
-::::
 :::
 
 ## Now you read these
 
 ::: {.readrow}
-:::: {.columns}
-::: {.column width="45%"}
+::: {.code}
 [`states["expanded"].value_counts()`]{.fragment fragment-index=1}
 :::
-::: {.column width="55%"}
-[&nbsp;"Take the `expanded` column out of `states`, and count how many of each value there are."]{.fragment fragment-index=2}
+::: {.says}
+["Take the `expanded` column out of `states`, and count how many of each value there are."]{.fragment fragment-index=2}
 :::
-::::
 :::
 
 ::: {.readrow}
-:::: {.columns}
-::: {.column width="45%"}
+::: {.code}
 [`high_pov = states[states["poverty_rate"] > 20]`]{.fragment fragment-index=3}
 :::
-::: {.column width="55%"}
-[&nbsp;"From `states`, keep the rows where `poverty_rate` is above 20, and store that as `high_pov`."]{.fragment fragment-index=4}
+::: {.says}
+["From `states`, keep the rows where `poverty_rate` is above 20, and store that as `high_pov`."]{.fragment fragment-index=4}
 :::
-::::
 :::
 
 ::: {.readrow}
-:::: {.columns}
-::: {.column width="45%"}
+::: {.code}
 [`states.groupby("expanded")["poverty_rate"].mean()`]{.fragment fragment-index=5}
 :::
-::: {.column width="55%"}
-[&nbsp;"Using `states`, average `poverty_rate` broken down by `expanded`."]{.fragment fragment-index=6}
+::: {.says}
+["Using `states`, average `poverty_rate` broken down by `expanded`."]{.fragment fragment-index=6}
 :::
-::::
 :::
 
 ::: {.readrow}
-:::: {.columns}
-::: {.column width="45%"}
+::: {.code}
 [`states["big"] = np.where(states["poverty_rate"] > 20, 1, 0)`]{.fragment fragment-index=7}
 :::
-::: {.column width="55%"}
-[&nbsp;"Test whether each state's `poverty_rate` is above 20, give it 1 if yes and 0 if no, and store that as a new column called `big`."]{.fragment fragment-index=8}
+::: {.says}
+["Test whether each state's `poverty_rate` is above 20, give it 1 if yes and 0 if no, and store that as a new column called `big`."]{.fragment fragment-index=8}
 :::
-::::
 :::
 
 ::: {.notes}
@@ -840,9 +840,8 @@ When a p-value looks too good, ask how many independent things you
 actually measured.
 :::
 
-## That was the whole game
+## That was the whole analysis
 
-::: {style="font-size: 0.8em;"}
 | Step | What you did | With |
 |---|---|---|
 | 1–2 | Load tools, read the data | `pd.read_csv()` `.head()` |
@@ -853,7 +852,6 @@ actually measured.
 | 7 | Check | `np.random.default_rng()` `.permutation()` `range()` `.append()` `np.array()` `plt.axvline()` `abs()` |
 | 8 | Model | `smf.ols()` `.fit()` `.summary()` `print()` |
 | Module 2 | Split at the median | `.median()` |
-:::
 
 Twenty-eight functions and methods: a difference in means, a permutation
 test, and a regression, plus the reason to distrust one of them.
@@ -863,7 +861,6 @@ test, and a regression, plus the reason to distrust one of them.
 :::: {.columns}
 
 ::: {.column width="50%"}
-::: {style="font-size: 0.52em;"}
 **Get data, look at it**
 
 | | |
@@ -900,10 +897,8 @@ test, and a regression, plus the reason to distrust one of them.
 | `abs()` | drop the minus sign |
 | `.sort_values()` | sort the rows by a column |
 :::
-:::
 
 ::: {.column width="50%"}
-::: {style="font-size: 0.52em;"}
 **Test and model**
 
 | | |
@@ -932,20 +927,16 @@ test, and a regression, plus the reason to distrust one of them.
 | `.shape` | how many rows and columns |
 | `.columns` | what are the columns called |
 | `.pvalue` | just the p-value from a test |
-:::
 
-::: {style="font-size: 0.72em; margin-top: 0.5em;"}
 Three more appear only in the finish-early extensions: `plt.scatter()`,
 `plt.axline()`, and the `.params` attribute. And `help()` works on all of
 them.
-:::
 :::
 
 ::::
 
 ## Glossary: the symbols
 
-::: {style="font-size: 0.6em;"}
 | | | |
 |---|---|---|
 | `#` | everything after it is ignored | `# this is a note` |
@@ -962,7 +953,6 @@ them.
 | `>=` `<=` `>` `<` | the usual comparisons | `diffs >= 64` |
 | `&` | and; put each side in its own `( )` | `x.notna() & (x == 2014)` |
 | `:` + indent | the indented lines below belong together | inside the `for` loop |
-:::
 
 ::: fragment
 `=` does both jobs, and you will see both. Python's style guide writes the
@@ -974,23 +964,23 @@ the two jobs visible.
 
 The one that catches everyone. Same symbol, four different meanings:
 
-::: {style="font-size: 0.74em;"}
 | | | |
 |---|---|---|
 | `df["col"]` | pull one **column** out of a table | `counties["year"]` |
 | `df[test]` | keep the **rows** where a test is True, in a table or a single column | `counties[counties["year"] == 2014]` |
 | `s[label]` | pick one value by its **label** | `group_means[1]` |
 | `["a", "b"]` | make a **list**; inside `df[ ]` it picks several columns | `[["deaths", "population_20_64"]]` |
-:::
 
 ::: fragment
 If you get a `KeyError`, read the last line of the message: it names what
 pandas could not find. It is almost always a column name spelled wrong.
 :::
 
-# Module 2: We do
+##
 
-## Your turn, with a partner
+### Module 2: We do
+
+## Your turn, with a partner {background-color="#1f4e79"}
 
 Open `scripts/02-we-do.py`.
 
@@ -1020,9 +1010,11 @@ If the p-value line gives you `0`, that is not p = 0. None of 1000
 shuffles got that far, so **report p < 0.001**.
 :::
 
-# Module 3: You do
+##
 
-## On your own
+### Module 3: You do
+
+## On your own {background-color="#1f4e79"}
 
 Open `scripts/03-they-do.py`.
 
@@ -1049,7 +1041,9 @@ Open `scripts/03-they-do.py`.
    we are here for another twenty minutes.
 :::
 
-# Where this goes
+##
+
+### Where this goes
 
 ## What today deliberately left out
 
@@ -1095,7 +1089,9 @@ Your script from today is the best reference you now own. It works, you
 typed it, and you know what every line does.
 :::
 
-# Appendix
+##
+
+### Appendix
 
 ## Inside the quotes: a path
 

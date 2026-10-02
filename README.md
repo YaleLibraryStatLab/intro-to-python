@@ -12,7 +12,7 @@ fit a regression — using twenty-eight functions and methods.
 2. Download this repository: green **Code** button above → **Download ZIP**,
    then unzip it. (Or `git clone` it if you use git.)
 3. In Positron, **File → Open Folder** and choose the `intro-to-python`
-   folder. Open a terminal with **Terminal → New Terminal**.
+   folder. Open a terminal in Positron with **Terminal → New Terminal**.
 4. Install **uv**, the tool that sets up Python for you. Paste the line for
    your computer into the terminal and press Enter:
 

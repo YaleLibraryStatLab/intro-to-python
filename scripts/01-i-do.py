@@ -30,11 +30,16 @@
 # pandas as pd, numpy as np, matplotlib.pyplot as plt, stats from
 # scipy, and statsmodels.formula.api as smf.
 
+world = "Hello world!"
+print(world)
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+import statsmodels.formula.api as smf
 
-
-
-
+counties = pd.read_csv("data/medicaid.csv", index_col=0)
 
 # ---- 2. Get the data ------------------------------------------------
 
@@ -69,7 +74,10 @@
 #      the first few values of yaca.
 #   3. Weight by population. A state's rate is its deaths over its people.
 
+d2014 = counties[counties["year"] == 2014]
+d2014.shape
 
+dn2014 = counties[counties["year"] != 2014]
 
 # 4a. Keep one year: the rows of `counties` where year is 2014.
 #     Call it `d2014`. Then check its size.
