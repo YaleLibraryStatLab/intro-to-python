@@ -16,6 +16,15 @@
 # =====================================================================
 
 
+# ---- 0. Start clean -------------------------------------------------
+
+# Run this line first: Cmd+Enter / Ctrl+Enter. It empties the
+# Variables pane. Module 1 left a `states`, a `diffs` and a
+# `diff_obs` behind, and this module makes its own: without this, a
+# line of yours can fail and the next one still run, on the old values.
+get_ipython().run_line_magic("reset", "-f")
+
+
 # ---- 1. Load the tools ----------------------------------------------
 
 # Same five as Module 1. Just run them.

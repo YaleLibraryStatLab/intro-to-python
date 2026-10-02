@@ -16,6 +16,13 @@
 # =====================================================================
 
 
+# ---- 0. Start clean -------------------------------------------------
+# Run this line first: Cmd+Enter / Ctrl+Enter. It empties the
+# Variables pane, so everything you use below is something you
+# made in this script, not a leftover from Module 2.
+get_ipython().run_line_magic("reset", "-f")
+
+
 # ---- 1. Load the tools ----------------------------------------------
 # The same five import lines as Modules 1 and 2.
 

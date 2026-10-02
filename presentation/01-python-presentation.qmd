@@ -1067,9 +1067,10 @@ Monday with twenty-eight functions and methods.
 works on exactly one computer, and not for long. Open the project folder
 and every path in your script stays relative.
 
-**Never use `%reset` to start clean.** It deletes your variables, but
-libraries stay loaded and any settings you changed stay changed. It does
-not give you a clean session. Restart Python instead: **Cmd/Ctrl+Shift+0**.
+**Restart Python to start clean.** The reset line at the top of today's
+scripts was a workshop shortcut: it empties the Variables pane between
+modules, but any settings you changed stay changed. For your own work,
+restart instead: **Cmd/Ctrl+Shift+0**.
 
 ::: fragment
 If a script only runs after you have run some *other* thing first, it isn't

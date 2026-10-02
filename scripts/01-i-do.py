@@ -24,6 +24,14 @@
 # =====================================================================
 
 
+# ---- 0. Start clean -------------------------------------------------
+
+# Run this line first: Cmd+Enter / Ctrl+Enter. It empties the
+# Variables pane, so nothing left over from the setup check can
+# stand in for a line of yours that did not work.
+get_ipython().run_line_magic("reset", "-f")
+
+
 # ---- 1. Load the tools ----------------------------------------------
 
 # Load the five libraries we use today, each under its usual nickname:
@@ -81,9 +89,16 @@ dn2014 = counties[counties["year"] != 2014]
 
 # 4a. Keep one year: the rows of `counties` where year is 2014.
 #     Call it `d2014`. Then check its size.
+d2014["expanded"] = np.where(d2014["yaca"].notna() & (d2014["yaca"] == 2014), 1, 0)
+d2014["expanded"].value_counts()
 
+d2014["deaths"] = d2014["crude_rate_20_64"] * d2014["population_20_64"] / 1e5
 
-
+states = d2014.groupby(["state", "expanded"],
+                       as_index=False)[["deaths", "population_20_64"]].sum()
+states["crude_rate_20_64"] = states["deaths"] / states["population_20_64"] * 1e5
+states = states.sort_values("state")
+states.shape
 
 
 

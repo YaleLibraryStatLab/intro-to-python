@@ -889,7 +889,7 @@ Name: crude_rate_20_64, dtype: float64</code></pre>
 <span id="cb37-4"><a href="" aria-hidden="true" tabindex="-1"></a>(states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">1</span>].mean() <span class="op">-</span></span>
 <span id="cb37-5"><a href="" aria-hidden="true" tabindex="-1"></a> states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">0</span>].mean())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(13.209581294482632)</code></pre>
+<pre><code>np.float64(2.912319950415622)</code></pre>
 </div>
 </div>
 <p><code>rng</code> is a random number generator: the thing that does the shuffling. Run it again:</p>
@@ -898,7 +898,7 @@ Name: crude_rate_20_64, dtype: float64</code></pre>
 <span id="cb39-2"><a href="" aria-hidden="true" tabindex="-1"></a>(states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">1</span>].mean() <span class="op">-</span></span>
 <span id="cb39-3"><a href="" aria-hidden="true" tabindex="-1"></a> states[<span class="st">"crude_rate_20_64"</span>][shuffled <span class="op">==</span> <span class="dv">0</span>].mean())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>np.float64(-7.188820364532376)</code></pre>
+<pre><code>np.float64(-2.2587910006451466)</code></pre>
 </div>
 </div>
 <p>That bouncing <strong>is</strong> sampling variation. You are looking straight at it.</p>
@@ -982,7 +982,7 @@ Dep. Variable:       crude_rate_20_64   R-squared:                       0.060
 Model:                            OLS   Adj. R-squared:                  0.035
 Method:                 Least Squares   F-statistic:                     2.380
 Date:                Fri, 02 Oct 2026   Prob (F-statistic):              0.131
-Time:                        07:46:36   Log-Likelihood:                -224.55
+Time:                        09:47:49   Log-Likelihood:                -224.55
 No. Observations:                  39   AIC:                             453.1
 Df Residuals:                      37   BIC:                             456.4
 Df Model:                           1                                         
@@ -1480,7 +1480,7 @@ Notes:
 <section id="two-rules-for-your-own-work" class="slide level2">
 <h2>Two rules for your own work</h2>
 <p><strong>Always open the folder.</strong> Never write <code>os.chdir("/Users/you/...")</code>. It works on exactly one computer, and not for long. Open the project folder and every path in your script stays relative.</p>
-<p><strong>Never use <code>%reset</code> to start clean.</strong> It deletes your variables, but libraries stay loaded and any settings you changed stay changed. It does not give you a clean session. Restart Python instead: <strong>Cmd/Ctrl+Shift+0</strong>.</p>
+<p><strong>Restart Python to start clean.</strong> The reset line at the top of today’s scripts was a workshop shortcut: it empties the Variables pane between modules, but any settings you changed stay changed. For your own work, restart instead: <strong>Cmd/Ctrl+Shift+0</strong>.</p>
 <div class="fragment">
 <p>If a script only runs after you have run some <em>other</em> thing first, it isn’t finished.</p>
 </div>
